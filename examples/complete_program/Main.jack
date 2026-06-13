@@ -1,0 +1,40 @@
+/**
+ * Self-contained, fully-linked demo program.
+ *
+ * Builds an integer array, runs statistics over it using only arithmetic
+ * (including * and /, which the compiler lowers to Math.multiply / Math.divide),
+ * and publishes the results into a fixed RAM inspection block via Memory.poke.
+ *
+ * It depends only on the minimal runtime bundled alongside it (Sys, Memory,
+ * Math, Array) and performs no screen/keyboard I/O, so the whole program can be
+ * compiled all the way down to Hack machine code with every call resolved.
+ *
+ * Expected results (inspect RAM after execution):
+ *   RAM[8000] = 204   (sum of 1,4,9,16,25,36,49,64)
+ *   RAM[8001] = 25    (integer mean: 204 / 8)
+ *   RAM[8002] = 64    (maximum element)
+ */
+class Main {
+    function void main() {
+        var Stats s;
+        var Array data;
+        var int i;
+
+        let data = Array.new(8);
+        let i = 0;
+        while (i < 8) {
+            let data[i] = (i + 1) * (i + 1);   // perfect squares: 1, 4, 9, ...
+            let i = i + 1;
+        }
+
+        let s = Stats.new(data, 8);
+
+        do Memory.poke(8000, s.sum());
+        do Memory.poke(8001, s.mean());
+        do Memory.poke(8002, s.maxVal());
+
+        do s.dispose();
+        do data.dispose();
+        return;
+    }
+}

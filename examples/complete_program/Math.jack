@@ -1,0 +1,85 @@
+/**
+ * Minimal integer math runtime.
+ *
+ * The compiler lowers the * and / operators to calls to Math.multiply and
+ * Math.divide, so any program using arithmetic depends on this class. Both
+ * are implemented without using * or / themselves (shift-and-add multiply;
+ * recursive long division), which is what makes the runtime self-hosting.
+ */
+class Math {
+    function void init() {
+        return;
+    }
+
+    /** Returns x * y via shift-and-add over the 16 bits of y. */
+    function int multiply(int x, int y) {
+        var int sum, shiftedX, mask;
+        let sum = 0;
+        let shiftedX = x;
+        let mask = 1;
+        // mask walks 1,2,4,...,2^15, then overflows to 0 and stops (16 bits).
+        while (~(mask = 0)) {
+            if (~((y & mask) = 0)) {
+                let sum = sum + shiftedX;
+            }
+            let shiftedX = shiftedX + shiftedX;
+            let mask = mask + mask;
+        }
+        return sum;
+    }
+
+    /** Integer division, truncated toward zero, with sign handling. */
+    function int divide(int x, int y) {
+        var int q;
+        var boolean neg;
+        let neg = false;
+        if (x < 0) {
+            let x = -x;
+            let neg = ~neg;
+        }
+        if (y < 0) {
+            let y = -y;
+            let neg = ~neg;
+        }
+        let q = Math.divHelper(x, y);
+        if (neg) {
+            return -q;
+        }
+        return q;
+    }
+
+    /** Recursive long division for non-negative x and y. */
+    function int divHelper(int x, int y) {
+        var int q;
+        // y < 0 detects overflow of the doubling below; y > x ends the recursion.
+        if ((y > x) | (y < 0)) {
+            return 0;
+        }
+        let q = Math.divHelper(x, y + y);
+        if ((x - ((2 * q) * y)) < y) {
+            return 2 * q;
+        }
+        return (2 * q) + 1;
+    }
+
+    function int abs(int x) {
+        if (x < 0) {
+            return -x;
+        }
+        return x;
+    }
+
+    function int min(int a, int b) {
+        if (a < b) {
+            return a;
+        }
+        return b;
+    }
+
+    function int max(int a, int b) {
+        if (a > b) {
+            return a;
+        }
+        return b;
+    }
+}

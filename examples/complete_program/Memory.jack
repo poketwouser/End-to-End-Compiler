@@ -1,0 +1,41 @@
+/**
+ * Minimal memory runtime.
+ *
+ * peek/poke give direct access to physical RAM via the classic Jack aliasing
+ * trick: an Array whose base is set to 0 indexes raw memory addresses.
+ *
+ * alloc is a bump allocator over the heap region; deAlloc is a no-op (no
+ * reclamation). This is sufficient for a demo whose total allocation is small
+ * and bounded, and keeps the runtime small and obviously correct.
+ */
+class Memory {
+    static Array ram;
+    static int freePtr;
+
+    function void init() {
+        let ram = 0;          // ram[addr] now aliases physical RAM[addr]
+        let freePtr = 2048;   // heap base (above the global stack region)
+        return;
+    }
+
+    function int peek(int address) {
+        return ram[address];
+    }
+
+    function void poke(int address, int value) {
+        let ram[address] = value;
+        return;
+    }
+
+    /** Allocate `size` words and return the base address. */
+    function int alloc(int size) {
+        var int addr;
+        let addr = freePtr;
+        let freePtr = freePtr + size;
+        return addr;
+    }
+
+    function void deAlloc(int object) {
+        return;
+    }
+}

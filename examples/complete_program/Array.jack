@@ -1,0 +1,15 @@
+/**
+ * Minimal array runtime. A Jack Array is an untyped block of memory; `new`
+ * allocates it on the heap and `dispose` returns it. Allocation is delegated
+ * to Memory so there is a single owner of the heap.
+ */
+class Array {
+    function Array new(int size) {
+        return Memory.alloc(size);
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

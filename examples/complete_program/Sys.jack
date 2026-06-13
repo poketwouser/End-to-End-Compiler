@@ -1,0 +1,21 @@
+/**
+ * System bootstrap. The VM bootstrap (emitted by the VM translator) initializes
+ * the stack pointer and calls Sys.init, which brings up the runtime and then
+ * transfers control to the application entry point.
+ */
+class Sys {
+    function void init() {
+        do Memory.init();   // heap must exist before anything allocates
+        do Math.init();
+        do Main.main();
+        do Sys.halt();
+        return;
+    }
+
+    /** Stop the machine by spinning forever. */
+    function void halt() {
+        while (true) {
+        }
+        return;
+    }
+}

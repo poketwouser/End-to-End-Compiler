@@ -1,0 +1,51 @@
+/**
+ * A small object that computes summary statistics over an integer array.
+ * Demonstrates a constructor, fields, methods, and a method calling another
+ * method on the same object (mean -> sum).
+ */
+class Stats {
+    field Array values;
+    field int count;
+
+    constructor Stats new(Array data, int n) {
+        let values = data;
+        let count = n;
+        return this;
+    }
+
+    /** Sum of all elements. */
+    method int sum() {
+        var int i, total;
+        let i = 0;
+        let total = 0;
+        while (i < count) {
+            let total = total + values[i];
+            let i = i + 1;
+        }
+        return total;
+    }
+
+    /** Integer mean (truncated). Exercises the / operator -> Math.divide. */
+    method int mean() {
+        return sum() / count;
+    }
+
+    /** Largest element. */
+    method int maxVal() {
+        var int i, m;
+        let m = values[0];
+        let i = 1;
+        while (i < count) {
+            if (values[i] > m) {
+                let m = values[i];
+            }
+            let i = i + 1;
+        }
+        return m;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

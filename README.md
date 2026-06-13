@@ -1,5 +1,9 @@
 # End-to-End Compiler and Systems Stack
 
+![CI](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)
+
+> Replace `USER/REPO` in the badge URL above once the repository is pushed to GitHub.
+
 A complete, working compilation toolchain — from an object-oriented high-level
 language down to the binary words executed by a gate-level CPU. Every layer of
 the stack is implemented from scratch: the language frontend, the intermediate
@@ -149,6 +153,37 @@ architecture is described in [docs/architecture.md](docs/architecture.md).
 
 No third-party dependencies — Python 3.8+ and the standard library only.
 
+### One command: Jack all the way to machine code
+
+[`pipeline.py`](pipeline.py) chains all three backend stages and then verifies
+the result like a linker would — every VM function that gets called must be
+defined, and every emitted word must be valid 16-bit binary:
+
+```bash
+python pipeline.py examples/complete_program
+```
+```
+Building 'complete_program' from 6 Jack source file(s)
+
+[1/3] Jack compiler   (Jack -> VM intermediate code)
+[2/3] VM translator   (VM -> Hack assembly)
+[3/3] Assembler       (Hack assembly -> 16-bit machine code)
+
+Pipeline complete: Jack source compiled all the way to machine code.
+    VM functions defined : 22
+    VM functions called  : 17  (all resolved)
+    Machine-code words   : 5073  (all valid 16-bit binary)
+    Output binary        : build/complete_program.hack
+```
+
+The demo program ([`examples/complete_program/`](examples/complete_program/))
+is **self-contained**: it ships with a minimal runtime (`Sys`, `Memory`,
+`Math`, `Array`) written in Jack and compiled by this project's own compiler, so
+the stack is self-hosting for the language features it uses and the binary links
+with no external dependencies.
+
+### Running a single stage
+
 **Compile Jack source to VM code:**
 ```bash
 python jack_compiler/JackCompiler.py examples/jack_programs
@@ -189,6 +224,7 @@ pytest                                 # if installed
 ```
 .
 ├── README.md
+├── pipeline.py                  # one-command Jack → VM → ASM → machine code driver
 ├── docs/
 │   ├── architecture.md          # frontend / middle-end / backend, runtime & memory model
 │   ├── compiler_pipeline.md     # pass-by-pass walk-through
@@ -202,11 +238,13 @@ pytest                                 # if installed
 ├── vm_translator/               # stack VM → Hack assembly
 ├── jack_compiler/               # Jack → VM code
 ├── examples/
-│   ├── jack_programs/           # object-oriented Jack source
-│   ├── vm_programs/             # stack-based VM source
-│   └── assembly_programs/       # Hack assembly source
-├── tests/                       # end-to-end smoke tests
-└── assets/                      # diagrams
+│   ├── complete_program/        # self-contained Jack app + runtime (full pipeline demo)
+│   ├── jack_programs/            # object-oriented Jack source (frontend showcase)
+│   ├── vm_programs/              # stack-based VM source
+│   └── assembly_programs/        # Hack assembly source
+├── tests/                       # per-stage + full-stack tests
+├── assets/                      # diagrams
+└── .github/workflows/ci.yml     # CI: runs tests + full pipeline build on push
 ```
 
 ---

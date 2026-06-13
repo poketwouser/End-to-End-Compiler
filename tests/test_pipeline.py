@@ -98,5 +98,33 @@ class TestJackCompiler(unittest.TestCase):
                 self.assertIn("function Main.main", f.read())
 
 
+class TestFullStack(unittest.TestCase):
+    """Jack source -> VM -> assembly -> machine code, driven by pipeline.py."""
+
+    def test_complete_program_builds_and_links(self):
+        with tempfile.TemporaryDirectory() as build:
+            result = subprocess.run(
+                [PYTHON, os.path.join(REPO_ROOT, "pipeline.py"),
+                 os.path.join(EXAMPLES, "complete_program"),
+                 "--build-dir", build],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(
+                result.returncode, 0,
+                f"pipeline failed\nstdout:\n{result.stdout}\nstderr:\n{result.stderr}",
+            )
+            hack = os.path.join(build, "complete_program.hack")
+            self.assertTrue(os.path.exists(hack), "final .hack binary not produced")
+            with open(hack) as f:
+                words = [w for w in f.read().splitlines() if w]
+            self.assertGreater(len(words), 0)
+            for w in words:
+                self.assertEqual(len(w), 16)
+                self.assertTrue(set(w) <= {"0", "1"})
+            # pipeline.py exits non-zero on any unresolved call, so a clean exit
+            # above already proves the program is fully linked.
+            self.assertIn("all resolved", result.stdout)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
