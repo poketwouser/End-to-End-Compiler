@@ -1,0 +1,18 @@
+/**
+ * Exclusive-Nor gate:
+ * if ((a and Not(b)) or (Not(a) and b)) out = 0, else out = 1
+ */
+CHIP Xnor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in= a, out=notA );
+    Not(in= b, out=notB );
+    Or(a= a, b= notB, out= AnotB);
+    Or(a= notA, b= b, out= BnotA);
+    Not(in= AnotB, out=out1 );
+    Not(in= BnotA, out=out2 );
+    Or(a= out1, b= out2, out=out3 );
+    Not(in= out3, out=out );
+}

@@ -1,0 +1,144 @@
+CHIP SignedMultiplier {
+    IN a[16], b[16];
+    OUT out[32], out1[16], out2[16];
+
+    PARTS:
+    Not16(in=a, out=notA);
+    Add16(a=notA, b[0]=true, out=negA);
+    Mux16(a=a, b=negA, sel=a[15], out=absA);
+
+    Not16(in=b, out=notB);
+    Add16(a=notB, b[0]=true, out=negB);
+    Mux16(a=b, b=negB, sel=b[15], out=absB);
+
+    Multiplier(a=absA, b=absB,
+        out1[0]=rawP0,  out1[1]=rawP1,  out1[2]=rawP2,  out1[3]=rawP3,
+        out1[4]=rawP4,  out1[5]=rawP5,  out1[6]=rawP6,  out1[7]=rawP7,
+        out1[8]=rawP8,  out1[9]=rawP9,  out1[10]=rawP10, out1[11]=rawP11,
+        out1[12]=rawP12, out1[13]=rawP13, out1[14]=rawP14, out1[15]=rawP15,
+        out2[0]=rawP16, out2[1]=rawP17, out2[2]=rawP18, out2[3]=rawP19,
+        out2[4]=rawP20, out2[5]=rawP21, out2[6]=rawP22, out2[7]=rawP23,
+        out2[8]=rawP24, out2[9]=rawP25, out2[10]=rawP26, out2[11]=rawP27,
+        out2[12]=rawP28, out2[13]=rawP29, out2[14]=rawP30, out2[15]=rawP31
+    );
+
+    Xor(a=a[15], b=b[15], out=resultSign);
+    Xor(a=rawP0,  b=resultSign, out=flipP0);
+    Xor(a=rawP1,  b=resultSign, out=flipP1);
+    Xor(a=rawP2,  b=resultSign, out=flipP2);
+    Xor(a=rawP3,  b=resultSign, out=flipP3);
+    Xor(a=rawP4,  b=resultSign, out=flipP4);
+    Xor(a=rawP5,  b=resultSign, out=flipP5);
+    Xor(a=rawP6,  b=resultSign, out=flipP6);
+    Xor(a=rawP7,  b=resultSign, out=flipP7);
+    Xor(a=rawP8,  b=resultSign, out=flipP8);
+    Xor(a=rawP9,  b=resultSign, out=flipP9);
+    Xor(a=rawP10, b=resultSign, out=flipP10);
+    Xor(a=rawP11, b=resultSign, out=flipP11);
+    Xor(a=rawP12, b=resultSign, out=flipP12);
+    Xor(a=rawP13, b=resultSign, out=flipP13);
+    Xor(a=rawP14, b=resultSign, out=flipP14);
+    Xor(a=rawP15, b=resultSign, out=flipP15);
+    Xor(a=rawP16, b=resultSign, out=flipP16);
+    Xor(a=rawP17, b=resultSign, out=flipP17);
+    Xor(a=rawP18, b=resultSign, out=flipP18);
+    Xor(a=rawP19, b=resultSign, out=flipP19);
+    Xor(a=rawP20, b=resultSign, out=flipP20);
+    Xor(a=rawP21, b=resultSign, out=flipP21);
+    Xor(a=rawP22, b=resultSign, out=flipP22);
+    Xor(a=rawP23, b=resultSign, out=flipP23);
+    Xor(a=rawP24, b=resultSign, out=flipP24);
+    Xor(a=rawP25, b=resultSign, out=flipP25);
+    Xor(a=rawP26, b=resultSign, out=flipP26);
+    Xor(a=rawP27, b=resultSign, out=flipP27);
+    Xor(a=rawP28, b=resultSign, out=flipP28);
+    Xor(a=rawP29, b=resultSign, out=flipP29);
+    Xor(a=rawP30, b=resultSign, out=flipP30);
+    Xor(a=rawP31, b=resultSign, out=flipP31);
+
+    CarryLookAheadAdder(
+        a[0]=flipP0,   a[1]=flipP1,   a[2]=flipP2,   a[3]=flipP3,
+        a[4]=flipP4,   a[5]=flipP5,   a[6]=flipP6,   a[7]=flipP7,
+        a[8]=flipP8,   a[9]=flipP9,   a[10]=flipP10,  a[11]=flipP11,
+        a[12]=flipP12,  a[13]=flipP13,  a[14]=flipP14,  a[15]=flipP15,
+        a[16]=flipP16,  a[17]=flipP17,  a[18]=flipP18,  a[19]=flipP19,
+        a[20]=flipP20,  a[21]=flipP21,  a[22]=flipP22,  a[23]=flipP23,
+        a[24]=flipP24,  a[25]=flipP25,  a[26]=flipP26,  a[27]=flipP27,
+        a[28]=flipP28,  a[29]=flipP29,  a[30]=flipP30,  a[31]=flipP31,
+        b[0]=resultSign,
+        sum[0]=z0,  sum[1]=z1,  sum[2]=z2,  sum[3]=z3,
+        sum[4]=z4,  sum[5]=z5,  sum[6]=z6,  sum[7]=z7,
+        sum[8]=z8,  sum[9]=z9,  sum[10]=z10, sum[11]=z11,
+        sum[12]=z12, sum[13]=z13, sum[14]=z14, sum[15]=z15,
+        sum[16]=z16,  sum[17]=z17,  sum[18]=z18,  sum[19]=z19,
+        sum[20]=z20,  sum[21]=z21,  sum[22]=z22,  sum[23]=z23,
+        sum[24]=z24,  sum[25]=z25,  sum[26]=z26, sum[27]=z27,
+        sum[28]=z28, sum[29]=z29, sum[30]=z30, sum[31]=z31
+    );
+
+    Or(a=z0, b=false, out=out1[0]);
+    Or(a=z1, b=false, out=out1[1]);
+    Or(a=z2, b=false, out=out1[2]);
+    Or(a=z3, b=false, out=out1[3]);
+    Or(a=z4, b=false, out=out1[4]);
+    Or(a=z5, b=false, out=out1[5]);
+    Or(a=z6, b=false, out=out1[6]);
+    Or(a=z7, b=false, out=out1[7]);
+    Or(a=z8, b=false, out=out1[8]);
+    Or(a=z9, b=false, out=out1[9]);
+    Or(a=z10, b=false, out=out1[10]);
+    Or(a=z11, b=false, out=out1[11]);
+    Or(a=z12, b=false, out=out1[12]);
+    Or(a=z13, b=false, out=out1[13]);
+    Or(a=z14, b=false, out=out1[14]);
+    Or(a=z15, b=false, out=out1[15]);
+    Or(a=z16, b=false, out=out2[0]);
+    Or(a=z17, b=false, out=out2[1]);
+    Or(a=z18, b=false, out=out2[2]);
+    Or(a=z19, b=false, out=out2[3]);
+    Or(a=z20, b=false, out=out2[4]);
+    Or(a=z21, b=false, out=out2[5]);
+    Or(a=z22, b=false, out=out2[6]);
+    Or(a=z23, b=false, out=out2[7]);
+    Or(a=z24, b=false, out=out2[8]);
+    Or(a=z25, b=false, out=out2[9]);
+    Or(a=z26, b=false, out=out2[10]);
+    Or(a=z27, b=false, out=out2[11]);
+    Or(a=z28, b=false, out=out2[12]);
+    Or(a=z29, b=false, out=out2[13]);
+    Or(a=z30, b=false, out=out2[14]);
+    Or(a=z31, b=false, out=out2[15]);
+
+    Or(a=z0, b=false, out=out[0]);
+    Or(a=z1, b=false, out=out[1]);
+    Or(a=z2, b=false, out=out[2]);
+    Or(a=z3, b=false, out=out[3]);
+    Or(a=z4, b=false, out=out[4]);
+    Or(a=z5, b=false, out=out[5]);
+    Or(a=z6, b=false, out=out[6]);
+    Or(a=z7, b=false, out=out[7]);
+    Or(a=z8, b=false, out=out[8]);
+    Or(a=z9, b=false, out=out[9]);
+    Or(a=z10, b=false, out=out[10]);
+    Or(a=z11, b=false, out=out[11]);
+    Or(a=z12, b=false, out=out[12]);
+    Or(a=z13, b=false, out=out[13]);
+    Or(a=z14, b=false, out=out[14]);
+    Or(a=z15, b=false, out=out[15]);
+    Or(a=z16, b=false, out=out[16]);
+    Or(a=z17, b=false, out=out[17]);
+    Or(a=z18, b=false, out=out[18]);
+    Or(a=z19, b=false, out=out[19]);
+    Or(a=z20, b=false, out=out[20]);
+    Or(a=z21, b=false, out=out[21]);
+    Or(a=z22, b=false, out=out[22]);
+    Or(a=z23, b=false, out=out[23]);
+    Or(a=z24, b=false, out=out[24]);
+    Or(a=z25, b=false, out=out[25]);
+    Or(a=z26, b=false, out=out[26]);
+    Or(a=z27, b=false, out=out[27]);
+    Or(a=z28, b=false, out=out[28]);
+    Or(a=z29, b=false, out=out[29]);
+    Or(a=z30, b=false, out=out[30]);
+    Or(a=z31, b=false, out=out[31]);
+}

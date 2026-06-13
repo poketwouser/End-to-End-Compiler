@@ -1,0 +1,461 @@
+﻿CHIP Multiplier {
+    IN a[16], b[16];
+    OUT out[32], out1[16], out2[16];
+
+    PARTS:
+    And(a=a[0],b=b[0],out=p0p0);   
+    And(a=a[0],b=b[1],out=p0p1);   
+    And(a=a[0],b=b[2],out=p0p2);   
+    And(a=a[0],b=b[3],out=p0p3);
+    And(a=a[0],b=b[4],out=p0p4);   
+    And(a=a[0],b=b[5],out=p0p5);   
+    And(a=a[0],b=b[6],out=p0p6);   
+    And(a=a[0],b=b[7],out=p0p7);
+    And(a=a[0],b=b[8],out=p0p8);   
+    And(a=a[0],b=b[9],out=p0p9);   
+    And(a=a[0],b=b[10],out=p0p10);  
+    And(a=a[0],b=b[11],out=p0p11);
+    And(a=a[0],b=b[12],out=p0p12);  
+    And(a=a[0],b=b[13],out=p0p13);  
+    And(a=a[0],b=b[14],out=p0p14);  
+    And(a=a[0],b=b[15],out=p0p15);
+
+    And(a=a[1],b=b[0],out=p1p0);   
+    And(a=a[1],b=b[1],out=p1p1);   
+    And(a=a[1],b=b[2],out=p1p2);   
+    And(a=a[1],b=b[3],out=p1p3);
+    And(a=a[1],b=b[4],out=p1p4);   
+    And(a=a[1],b=b[5],out=p1p5);   
+    And(a=a[1],b=b[6],out=p1p6);   
+    And(a=a[1],b=b[7],out=p1p7);
+    And(a=a[1],b=b[8],out=p1p8);   
+    And(a=a[1],b=b[9],out=p1p9);   
+    And(a=a[1],b=b[10],out=p1p10);  
+    And(a=a[1],b=b[11],out=p1p11);
+    And(a=a[1],b=b[12],out=p1p12);  
+    And(a=a[1],b=b[13],out=p1p13);  
+    And(a=a[1],b=b[14],out=p1p14);  
+    And(a=a[1],b=b[15],out=p1p15);
+
+    And(a=a[2],b=b[0],out=p2p0);   
+    And(a=a[2],b=b[1],out=p2p1);   
+    And(a=a[2],b=b[2],out=p2p2);   
+    And(a=a[2],b=b[3],out=p2p3);
+    And(a=a[2],b=b[4],out=p2p4);   
+    And(a=a[2],b=b[5],out=p2p5);   
+    And(a=a[2],b=b[6],out=p2p6);   
+    And(a=a[2],b=b[7],out=p2p7);
+    And(a=a[2],b=b[8],out=p2p8);   
+    And(a=a[2],b=b[9],out=p2p9);   
+    And(a=a[2],b=b[10],out=p2p10);  
+    And(a=a[2],b=b[11],out=p2p11);
+    And(a=a[2],b=b[12],out=p2p12);  
+    And(a=a[2],b=b[13],out=p2p13);  
+    And(a=a[2],b=b[14],out=p2p14);  
+    And(a=a[2],b=b[15],out=p2p15);
+
+    And(a=a[3],b=b[0],out=p3p0);   
+    And(a=a[3],b=b[1],out=p3p1);   
+    And(a=a[3],b=b[2],out=p3p2);   
+    And(a=a[3],b=b[3],out=p3p3);
+    And(a=a[3],b=b[4],out=p3p4);   
+    And(a=a[3],b=b[5],out=p3p5);   
+    And(a=a[3],b=b[6],out=p3p6);   
+    And(a=a[3],b=b[7],out=p3p7);
+    And(a=a[3],b=b[8],out=p3p8);   
+    And(a=a[3],b=b[9],out=p3p9);   
+    And(a=a[3],b=b[10],out=p3p10);  
+    And(a=a[3],b=b[11],out=p3p11);
+    And(a=a[3],b=b[12],out=p3p12);  
+    And(a=a[3],b=b[13],out=p3p13);  
+    And(a=a[3],b=b[14],out=p3p14);  
+    And(a=a[3],b=b[15],out=p3p15);
+
+    And(a=a[4],b=b[0],out=p4p0);   
+    And(a=a[4],b=b[1],out=p4p1);   
+    And(a=a[4],b=b[2],out=p4p2);   
+    And(a=a[4],b=b[3],out=p4p3);
+    And(a=a[4],b=b[4],out=p4p4);   
+    And(a=a[4],b=b[5],out=p4p5);   
+    And(a=a[4],b=b[6],out=p4p6);   
+    And(a=a[4],b=b[7],out=p4p7);
+    And(a=a[4],b=b[8],out=p4p8);   
+    And(a=a[4],b=b[9],out=p4p9);   
+    And(a=a[4],b=b[10],out=p4p10);  
+    And(a=a[4],b=b[11],out=p4p11);
+    And(a=a[4],b=b[12],out=p4p12);  
+    And(a=a[4],b=b[13],out=p4p13);  
+    And(a=a[4],b=b[14],out=p4p14);  
+    And(a=a[4],b=b[15],out=p4p15);
+
+    And(a=a[5],b=b[0],out=p5p0);   
+    And(a=a[5],b=b[1],out=p5p1);   
+    And(a=a[5],b=b[2],out=p5p2);   
+    And(a=a[5],b=b[3],out=p5p3);
+    And(a=a[5],b=b[4],out=p5p4);   
+    And(a=a[5],b=b[5],out=p5p5);   
+    And(a=a[5],b=b[6],out=p5p6);   
+    And(a=a[5],b=b[7],out=p5p7);
+    And(a=a[5],b=b[8],out=p5p8);   
+    And(a=a[5],b=b[9],out=p5p9);   
+    And(a=a[5],b=b[10],out=p5p10);  
+    And(a=a[5],b=b[11],out=p5p11);
+    And(a=a[5],b=b[12],out=p5p12);  
+    And(a=a[5],b=b[13],out=p5p13);  
+    And(a=a[5],b=b[14],out=p5p14);  
+    And(a=a[5],b=b[15],out=p5p15);
+
+    And(a=a[6],b=b[0],out=p6p0);   
+    And(a=a[6],b=b[1],out=p6p1);   
+    And(a=a[6],b=b[2],out=p6p2);   
+    And(a=a[6],b=b[3],out=p6p3);
+    And(a=a[6],b=b[4],out=p6p4);   
+    And(a=a[6],b=b[5],out=p6p5);   
+    And(a=a[6],b=b[6],out=p6p6);   
+    And(a=a[6],b=b[7],out=p6p7);
+    And(a=a[6],b=b[8],out=p6p8);   
+    And(a=a[6],b=b[9],out=p6p9);   
+    And(a=a[6],b=b[10],out=p6p10);  
+    And(a=a[6],b=b[11],out=p6p11);
+    And(a=a[6],b=b[12],out=p6p12);  
+    And(a=a[6],b=b[13],out=p6p13);  
+    And(a=a[6],b=b[14],out=p6p14);  
+    And(a=a[6],b=b[15],out=p6p15);
+
+    And(a=a[7],b=b[0],out=p7p0);   
+    And(a=a[7],b=b[1],out=p7p1);   
+    And(a=a[7],b=b[2],out=p7p2);   
+    And(a=a[7],b=b[3],out=p7p3);
+    And(a=a[7],b=b[4],out=p7p4);   
+    And(a=a[7],b=b[5],out=p7p5);   
+    And(a=a[7],b=b[6],out=p7p6);   
+    And(a=a[7],b=b[7],out=p7p7);
+    And(a=a[7],b=b[8],out=p7p8);   
+    And(a=a[7],b=b[9],out=p7p9);   
+    And(a=a[7],b=b[10],out=p7p10);  
+    And(a=a[7],b=b[11],out=p7p11);
+    And(a=a[7],b=b[12],out=p7p12);  
+    And(a=a[7],b=b[13],out=p7p13);  
+    And(a=a[7],b=b[14],out=p7p14);  
+    And(a=a[7],b=b[15],out=p7p15);
+
+    And(a=a[8],b=b[0],out=p8p0);   
+    And(a=a[8],b=b[1],out=p8p1);   
+    And(a=a[8],b=b[2],out=p8p2);   
+    And(a=a[8],b=b[3],out=p8p3);
+    And(a=a[8],b=b[4],out=p8p4);   
+    And(a=a[8],b=b[5],out=p8p5);   
+    And(a=a[8],b=b[6],out=p8p6);   
+    And(a=a[8],b=b[7],out=p8p7);
+    And(a=a[8],b=b[8],out=p8p8);   
+    And(a=a[8],b=b[9],out=p8p9);   
+    And(a=a[8],b=b[10],out=p8p10);  
+    And(a=a[8],b=b[11],out=p8p11);
+    And(a=a[8],b=b[12],out=p8p12);  
+    And(a=a[8],b=b[13],out=p8p13);  
+    And(a=a[8],b=b[14],out=p8p14);  
+    And(a=a[8],b=b[15],out=p8p15);
+
+    And(a=a[9],b=b[0],out=p9p0);   
+    And(a=a[9],b=b[1],out=p9p1);   
+    And(a=a[9],b=b[2],out=p9p2);   
+    And(a=a[9],b=b[3],out=p9p3);
+    And(a=a[9],b=b[4],out=p9p4);   
+    And(a=a[9],b=b[5],out=p9p5);   
+    And(a=a[9],b=b[6],out=p9p6);   
+    And(a=a[9],b=b[7],out=p9p7);
+    And(a=a[9],b=b[8],out=p9p8);   
+    And(a=a[9],b=b[9],out=p9p9);   
+    And(a=a[9],b=b[10],out=p9p10);  
+    And(a=a[9],b=b[11],out=p9p11);
+    And(a=a[9],b=b[12],out=p9p12);  
+    And(a=a[9],b=b[13],out=p9p13);  
+    And(a=a[9],b=b[14],out=p9p14);  
+    And(a=a[9],b=b[15],out=p9p15);
+
+    And(a=a[10],b=b[0],out=p10p0);  
+    And(a=a[10],b=b[1],out=p10p1);  
+    And(a=a[10],b=b[2],out=p10p2);  
+    And(a=a[10],b=b[3],out=p10p3);
+    And(a=a[10],b=b[4],out=p10p4);  
+    And(a=a[10],b=b[5],out=p10p5);  
+    And(a=a[10],b=b[6],out=p10p6);  
+    And(a=a[10],b=b[7],out=p10p7);
+    And(a=a[10],b=b[8],out=p10p8);  
+    And(a=a[10],b=b[9],out=p10p9);  
+    And(a=a[10],b=b[10],out=p10p10); 
+    And(a=a[10],b=b[11],out=p10p11);
+    And(a=a[10],b=b[12],out=p10p12); 
+    And(a=a[10],b=b[13],out=p10p13); 
+    And(a=a[10],b=b[14],out=p10p14); 
+    And(a=a[10],b=b[15],out=p10p15);
+
+    And(a=a[11],b=b[0],out=p11p0);  
+    And(a=a[11],b=b[1],out=p11p1);  
+    And(a=a[11],b=b[2],out=p11p2);  
+    And(a=a[11],b=b[3],out=p11p3);
+    And(a=a[11],b=b[4],out=p11p4);  
+    And(a=a[11],b=b[5],out=p11p5);  
+    And(a=a[11],b=b[6],out=p11p6);  
+    And(a=a[11],b=b[7],out=p11p7);
+    And(a=a[11],b=b[8],out=p11p8);  
+    And(a=a[11],b=b[9],out=p11p9);  
+    And(a=a[11],b=b[10],out=p11p10); 
+    And(a=a[11],b=b[11],out=p11p11);
+    And(a=a[11],b=b[12],out=p11p12); 
+    And(a=a[11],b=b[13],out=p11p13); 
+    And(a=a[11],b=b[14],out=p11p14); 
+    And(a=a[11],b=b[15],out=p11p15);
+
+    And(a=a[12],b=b[0],out=p12p0);  
+    And(a=a[12],b=b[1],out=p12p1);  
+    And(a=a[12],b=b[2],out=p12p2);  
+    And(a=a[12],b=b[3],out=p12p3);
+    And(a=a[12],b=b[4],out=p12p4);  
+    And(a=a[12],b=b[5],out=p12p5);  
+    And(a=a[12],b=b[6],out=p12p6);  
+    And(a=a[12],b=b[7],out=p12p7);
+    And(a=a[12],b=b[8],out=p12p8);
+    And(a=a[12],b=b[9],out=p12p9);  
+    And(a=a[12],b=b[10],out=p12p10); 
+    And(a=a[12],b=b[11],out=p12p11);
+    And(a=a[12],b=b[12],out=p12p12); 
+    And(a=a[12],b=b[13],out=p12p13); 
+    And(a=a[12],b=b[14],out=p12p14); 
+    And(a=a[12],b=b[15],out=p12p15);
+
+    And(a=a[13],b=b[0],out=p13p0);  
+    And(a=a[13],b=b[1],out=p13p1);  
+    And(a=a[13],b=b[2],out=p13p2);  
+    And(a=a[13],b=b[3],out=p13p3);
+    And(a=a[13],b=b[4],out=p13p4);  
+    And(a=a[13],b=b[5],out=p13p5);  
+    And(a=a[13],b=b[6],out=p13p6);  
+    And(a=a[13],b=b[7],out=p13p7);
+    And(a=a[13],b=b[8],out=p13p8);  
+    And(a=a[13],b=b[9],out=p13p9);  
+    And(a=a[13],b=b[10],out=p13p10); 
+    And(a=a[13],b=b[11],out=p13p11);
+    And(a=a[13],b=b[12],out=p13p12); 
+    And(a=a[13],b=b[13],out=p13p13); 
+    And(a=a[13],b=b[14],out=p13p14); 
+    And(a=a[13],b=b[15],out=p13p15);
+
+    And(a=a[14],b=b[0],out=p14p0);  
+    And(a=a[14],b=b[1],out=p14p1);  
+    And(a=a[14],b=b[2],out=p14p2);  
+    And(a=a[14],b=b[3],out=p14p3);
+    And(a=a[14],b=b[4],out=p14p4);  
+    And(a=a[14],b=b[5],out=p14p5);  
+    And(a=a[14],b=b[6],out=p14p6);  
+    And(a=a[14],b=b[7],out=p14p7);
+    And(a=a[14],b=b[8],out=p14p8);  
+    And(a=a[14],b=b[9],out=p14p9);  
+    And(a=a[14],b=b[10],out=p14p10); 
+    And(a=a[14],b=b[11],out=p14p11);
+    And(a=a[14],b=b[12],out=p14p12); 
+    And(a=a[14],b=b[13],out=p14p13); 
+    And(a=a[14],b=b[14],out=p14p14); 
+    And(a=a[14],b=b[15],out=p14p15);
+
+    And(a=a[15],b=b[0],out=p15p0);  
+    And(a=a[15],b=b[1],out=p15p1);  
+    And(a=a[15],b=b[2],out=p15p2);  
+    And(a=a[15],b=b[3],out=p15p3);
+    And(a=a[15],b=b[4],out=p15p4);  
+    And(a=a[15],b=b[5],out=p15p5);  
+    And(a=a[15],b=b[6],out=p15p6);  
+    And(a=a[15],b=b[7],out=p15p7);
+    And(a=a[15],b=b[8],out=p15p8);  
+    And(a=a[15],b=b[9],out=p15p9);  
+    And(a=a[15],b=b[10],out=p15p10); 
+    And(a=a[15],b=b[11],out=p15p11);
+    And(a=a[15],b=b[12],out=p15p12); 
+    And(a=a[15],b=b[13],out=p15p13); 
+    And(a=a[15],b=b[14],out=p15p14); 
+    And(a=a[15],b=b[15],out=p15p15);
+
+    CarrySaveAdder(
+        x[0]=p0p0, x[1]=p0p1, x[2]=p0p2, x[3]=p0p3, x[4]=p0p4, x[5]=p0p5, x[6]=p0p6, x[7]=p0p7, x[8]=p0p8, x[9]=p0p9, x[10]=p0p10, x[11]=p0p11, x[12]=p0p12, x[13]=p0p13, x[14]=p0p14, x[15]=p0p15,
+        y[1]=p1p0, y[2]=p1p1, y[3]=p1p2, y[4]=p1p3, y[5]=p1p4, y[6]=p1p5, y[7]=p1p6, y[8]=p1p7, y[9]=p1p8, y[10]=p1p9, y[11]=p1p10, y[12]=p1p11, y[13]=p1p12, y[14]=p1p13, y[15]=p1p14, y[16]=p1p15,
+        z[2]=p2p0, z[3]=p2p1, z[4]=p2p2, z[5]=p2p3, z[6]=p2p4, z[7]=p2p5, z[8]=p2p6, z[9]=p2p7, z[10]=p2p8, z[11]=p2p9, z[12]=p2p10, z[13]=p2p11, z[14]=p2p12, z[15]=p2p13, z[16]=p2p14, z[17]=p2p15,
+        sum[0]=s1a0, sum[1]=s1a1, sum[2]=s1a2, sum[3]=s1a3, sum[4]=s1a4, sum[5]=s1a5, sum[6]=s1a6, sum[7]=s1a7, sum[8]=s1a8, sum[9]=s1a9, sum[10]=s1a10, sum[11]=s1a11, sum[12]=s1a12, sum[13]=s1a13, sum[14]=s1a14, sum[15]=s1a15, sum[16]=s1a16, sum[17]=s1a17, sum[18]=s1a18, sum[19]=s1a19, sum[20]=s1a20, sum[21]=s1a21, sum[22]=s1a22, sum[23]=s1a23, sum[24]=s1a24, sum[25]=s1a25, sum[26]=s1a26, sum[27]=s1a27, sum[28]=s1a28, sum[29]=s1a29, sum[30]=s1a30, sum[31]=s1a31,
+        carry[0]=c1a0, carry[1]=c1a1, carry[2]=c1a2, carry[3]=c1a3, carry[4]=c1a4, carry[5]=c1a5, carry[6]=c1a6, carry[7]=c1a7, carry[8]=c1a8, carry[9]=c1a9, carry[10]=c1a10, carry[11]=c1a11, carry[12]=c1a12, carry[13]=c1a13, carry[14]=c1a14, carry[15]=c1a15, carry[16]=c1a16, carry[17]=c1a17, carry[18]=c1a18, carry[19]=c1a19, carry[20]=c1a20, carry[21]=c1a21, carry[22]=c1a22, carry[23]=c1a23, carry[24]=c1a24, carry[25]=c1a25, carry[26]=c1a26, carry[27]=c1a27, carry[28]=c1a28, carry[29]=c1a29, carry[30]=c1a30, carry[31]=c1a31
+    );
+
+    CarrySaveAdder(
+        x[3]=p3p0, x[4]=p3p1, x[5]=p3p2, x[6]=p3p3, x[7]=p3p4, x[8]=p3p5, x[9]=p3p6, x[10]=p3p7, x[11]=p3p8, x[12]=p3p9, x[13]=p3p10, x[14]=p3p11, x[15]=p3p12, x[16]=p3p13, x[17]=p3p14, x[18]=p3p15,
+        y[4]=p4p0, y[5]=p4p1, y[6]=p4p2, y[7]=p4p3, y[8]=p4p4, y[9]=p4p5, y[10]=p4p6, y[11]=p4p7, y[12]=p4p8, y[13]=p4p9, y[14]=p4p10, y[15]=p4p11, y[16]=p4p12, y[17]=p4p13, y[18]=p4p14, y[19]=p4p15,
+        z[5]=p5p0, z[6]=p5p1, z[7]=p5p2, z[8]=p5p3, z[9]=p5p4, z[10]=p5p5, z[11]=p5p6, z[12]=p5p7, z[13]=p5p8, z[14]=p5p9, z[15]=p5p10, z[16]=p5p11, z[17]=p5p12, z[18]=p5p13, z[19]=p5p14, z[20]=p5p15,
+        sum[0]=s1b0, sum[1]=s1b1, sum[2]=s1b2, sum[3]=s1b3, sum[4]=s1b4, sum[5]=s1b5, sum[6]=s1b6, sum[7]=s1b7, sum[8]=s1b8, sum[9]=s1b9, sum[10]=s1b10, sum[11]=s1b11, sum[12]=s1b12, sum[13]=s1b13, sum[14]=s1b14, sum[15]=s1b15, sum[16]=s1b16, sum[17]=s1b17, sum[18]=s1b18, sum[19]=s1b19, sum[20]=s1b20, sum[21]=s1b21, sum[22]=s1b22, sum[23]=s1b23, sum[24]=s1b24, sum[25]=s1b25, sum[26]=s1b26, sum[27]=s1b27, sum[28]=s1b28, sum[29]=s1b29, sum[30]=s1b30, sum[31]=s1b31,
+        carry[0]=c1b0, carry[1]=c1b1, carry[2]=c1b2, carry[3]=c1b3, carry[4]=c1b4, carry[5]=c1b5, carry[6]=c1b6, carry[7]=c1b7, carry[8]=c1b8, carry[9]=c1b9, carry[10]=c1b10, carry[11]=c1b11, carry[12]=c1b12, carry[13]=c1b13, carry[14]=c1b14, carry[15]=c1b15, carry[16]=c1b16, carry[17]=c1b17, carry[18]=c1b18, carry[19]=c1b19, carry[20]=c1b20, carry[21]=c1b21, carry[22]=c1b22, carry[23]=c1b23, carry[24]=c1b24, carry[25]=c1b25, carry[26]=c1b26, carry[27]=c1b27, carry[28]=c1b28, carry[29]=c1b29, carry[30]=c1b30, carry[31]=c1b31
+    );
+
+    CarrySaveAdder(
+        x[6]=p6p0, x[7]=p6p1, x[8]=p6p2, x[9]=p6p3, x[10]=p6p4, x[11]=p6p5, x[12]=p6p6, x[13]=p6p7, x[14]=p6p8, x[15]=p6p9, x[16]=p6p10, x[17]=p6p11, x[18]=p6p12, x[19]=p6p13, x[20]=p6p14, x[21]=p6p15,
+        y[7]=p7p0, y[8]=p7p1, y[9]=p7p2, y[10]=p7p3, y[11]=p7p4, y[12]=p7p5, y[13]=p7p6, y[14]=p7p7, y[15]=p7p8, y[16]=p7p9, y[17]=p7p10, y[18]=p7p11, y[19]=p7p12, y[20]=p7p13, y[21]=p7p14, y[22]=p7p15,
+        z[8]=p8p0, z[9]=p8p1, z[10]=p8p2, z[11]=p8p3, z[12]=p8p4, z[13]=p8p5, z[14]=p8p6, z[15]=p8p7, z[16]=p8p8, z[17]=p8p9, z[18]=p8p10, z[19]=p8p11, z[20]=p8p12, z[21]=p8p13, z[22]=p8p14, z[23]=p8p15,
+        sum[0]=s1c0, sum[1]=s1c1, sum[2]=s1c2, sum[3]=s1c3, sum[4]=s1c4, sum[5]=s1c5, sum[6]=s1c6, sum[7]=s1c7, sum[8]=s1c8, sum[9]=s1c9, sum[10]=s1c10, sum[11]=s1c11, sum[12]=s1c12, sum[13]=s1c13, sum[14]=s1c14, sum[15]=s1c15, sum[16]=s1c16, sum[17]=s1c17, sum[18]=s1c18, sum[19]=s1c19, sum[20]=s1c20, sum[21]=s1c21, sum[22]=s1c22, sum[23]=s1c23, sum[24]=s1c24, sum[25]=s1c25, sum[26]=s1c26, sum[27]=s1c27, sum[28]=s1c28, sum[29]=s1c29, sum[30]=s1c30, sum[31]=s1c31,
+        carry[0]=c1c0, carry[1]=c1c1, carry[2]=c1c2, carry[3]=c1c3, carry[4]=c1c4, carry[5]=c1c5, carry[6]=c1c6, carry[7]=c1c7, carry[8]=c1c8, carry[9]=c1c9, carry[10]=c1c10, carry[11]=c1c11, carry[12]=c1c12, carry[13]=c1c13, carry[14]=c1c14, carry[15]=c1c15, carry[16]=c1c16, carry[17]=c1c17, carry[18]=c1c18, carry[19]=c1c19, carry[20]=c1c20, carry[21]=c1c21, carry[22]=c1c22, carry[23]=c1c23, carry[24]=c1c24, carry[25]=c1c25, carry[26]=c1c26, carry[27]=c1c27, carry[28]=c1c28, carry[29]=c1c29, carry[30]=c1c30, carry[31]=c1c31
+    );
+
+    CarrySaveAdder(
+        x[9]=p9p0, x[10]=p9p1, x[11]=p9p2, x[12]=p9p3, x[13]=p9p4, x[14]=p9p5, x[15]=p9p6, x[16]=p9p7, x[17]=p9p8, x[18]=p9p9, x[19]=p9p10, x[20]=p9p11, x[21]=p9p12, x[22]=p9p13, x[23]=p9p14, x[24]=p9p15,
+        y[10]=p10p0, y[11]=p10p1, y[12]=p10p2, y[13]=p10p3, y[14]=p10p4, y[15]=p10p5, y[16]=p10p6, y[17]=p10p7, y[18]=p10p8, y[19]=p10p9, y[20]=p10p10, y[21]=p10p11, y[22]=p10p12, y[23]=p10p13, y[24]=p10p14, y[25]=p10p15,
+        z[11]=p11p0, z[12]=p11p1, z[13]=p11p2, z[14]=p11p3, z[15]=p11p4, z[16]=p11p5, z[17]=p11p6, z[18]=p11p7, z[19]=p11p8, z[20]=p11p9, z[21]=p11p10, z[22]=p11p11, z[23]=p11p12, z[24]=p11p13, z[25]=p11p14, z[26]=p11p15,
+        sum[0]=s1d0, sum[1]=s1d1, sum[2]=s1d2, sum[3]=s1d3, sum[4]=s1d4, sum[5]=s1d5, sum[6]=s1d6, sum[7]=s1d7, sum[8]=s1d8, sum[9]=s1d9, sum[10]=s1d10, sum[11]=s1d11, sum[12]=s1d12, sum[13]=s1d13, sum[14]=s1d14, sum[15]=s1d15, sum[16]=s1d16, sum[17]=s1d17, sum[18]=s1d18, sum[19]=s1d19, sum[20]=s1d20, sum[21]=s1d21, sum[22]=s1d22, sum[23]=s1d23, sum[24]=s1d24, sum[25]=s1d25, sum[26]=s1d26, sum[27]=s1d27, sum[28]=s1d28, sum[29]=s1d29, sum[30]=s1d30, sum[31]=s1d31,
+        carry[0]=c1d0, carry[1]=c1d1, carry[2]=c1d2, carry[3]=c1d3, carry[4]=c1d4, carry[5]=c1d5, carry[6]=c1d6, carry[7]=c1d7, carry[8]=c1d8, carry[9]=c1d9, carry[10]=c1d10, carry[11]=c1d11, carry[12]=c1d12, carry[13]=c1d13, carry[14]=c1d14, carry[15]=c1d15, carry[16]=c1d16, carry[17]=c1d17, carry[18]=c1d18, carry[19]=c1d19, carry[20]=c1d20, carry[21]=c1d21, carry[22]=c1d22, carry[23]=c1d23, carry[24]=c1d24, carry[25]=c1d25, carry[26]=c1d26, carry[27]=c1d27, carry[28]=c1d28, carry[29]=c1d29, carry[30]=c1d30, carry[31]=c1d31
+    );
+
+    CarrySaveAdder(
+        x[12]=p12p0, x[13]=p12p1, x[14]=p12p2, x[15]=p12p3, x[16]=p12p4, x[17]=p12p5, x[18]=p12p6, x[19]=p12p7, x[20]=p12p8, x[21]=p12p9, x[22]=p12p10, x[23]=p12p11, x[24]=p12p12, x[25]=p12p13, x[26]=p12p14, x[27]=p12p15,
+        y[13]=p13p0, y[14]=p13p1, y[15]=p13p2, y[16]=p13p3, y[17]=p13p4, y[18]=p13p5, y[19]=p13p6, y[20]=p13p7, y[21]=p13p8, y[22]=p13p9, y[23]=p13p10, y[24]=p13p11, y[25]=p13p12, y[26]=p13p13, y[27]=p13p14, y[28]=p13p15,
+        z[14]=p14p0, z[15]=p14p1, z[16]=p14p2, z[17]=p14p3, z[18]=p14p4, z[19]=p14p5, z[20]=p14p6, z[21]=p14p7, z[22]=p14p8, z[23]=p14p9, z[24]=p14p10, z[25]=p14p11, z[26]=p14p12, z[27]=p14p13, z[28]=p14p14, z[29]=p14p15,
+        sum[0]=s1e0, sum[1]=s1e1, sum[2]=s1e2, sum[3]=s1e3, sum[4]=s1e4, sum[5]=s1e5, sum[6]=s1e6, sum[7]=s1e7, sum[8]=s1e8, sum[9]=s1e9, sum[10]=s1e10, sum[11]=s1e11, sum[12]=s1e12, sum[13]=s1e13, sum[14]=s1e14, sum[15]=s1e15, sum[16]=s1e16, sum[17]=s1e17, sum[18]=s1e18, sum[19]=s1e19, sum[20]=s1e20, sum[21]=s1e21, sum[22]=s1e22, sum[23]=s1e23, sum[24]=s1e24, sum[25]=s1e25, sum[26]=s1e26, sum[27]=s1e27, sum[28]=s1e28, sum[29]=s1e29, sum[30]=s1e30, sum[31]=s1e31,
+        carry[0]=c1e0, carry[1]=c1e1, carry[2]=c1e2, carry[3]=c1e3, carry[4]=c1e4, carry[5]=c1e5, carry[6]=c1e6, carry[7]=c1e7, carry[8]=c1e8, carry[9]=c1e9, carry[10]=c1e10, carry[11]=c1e11, carry[12]=c1e12, carry[13]=c1e13, carry[14]=c1e14, carry[15]=c1e15, carry[16]=c1e16, carry[17]=c1e17, carry[18]=c1e18, carry[19]=c1e19, carry[20]=c1e20, carry[21]=c1e21, carry[22]=c1e22, carry[23]=c1e23, carry[24]=c1e24, carry[25]=c1e25, carry[26]=c1e26, carry[27]=c1e27, carry[28]=c1e28, carry[29]=c1e29, carry[30]=c1e30, carry[31]=c1e31
+    );
+
+    CarrySaveAdder(
+        x[0]=s1a0, x[1]=s1a1, x[2]=s1a2, x[3]=s1a3, x[4]=s1a4, x[5]=s1a5, x[6]=s1a6, x[7]=s1a7, x[8]=s1a8, x[9]=s1a9, x[10]=s1a10, x[11]=s1a11, x[12]=s1a12, x[13]=s1a13, x[14]=s1a14, x[15]=s1a15, x[16]=s1a16, x[17]=s1a17, x[18]=s1a18, x[19]=s1a19, x[20]=s1a20, x[21]=s1a21, x[22]=s1a22, x[23]=s1a23, x[24]=s1a24, x[25]=s1a25, x[26]=s1a26, x[27]=s1a27, x[28]=s1a28, x[29]=s1a29, x[30]=s1a30, x[31]=s1a31,
+        y[0]=false, y[1]=c1a1, y[2]=c1a2, y[3]=c1a3, y[4]=c1a4, y[5]=c1a5, y[6]=c1a6, y[7]=c1a7, y[8]=c1a8, y[9]=c1a9, y[10]=c1a10, y[11]=c1a11, y[12]=c1a12, y[13]=c1a13, y[14]=c1a14, y[15]=c1a15, y[16]=c1a16, y[17]=c1a17, y[18]=c1a18, y[19]=c1a19, y[20]=c1a20, y[21]=c1a21, y[22]=c1a22, y[23]=c1a23, y[24]=c1a24, y[25]=c1a25, y[26]=c1a26, y[27]=c1a27, y[28]=c1a28, y[29]=c1a29, y[30]=c1a30, y[31]=c1a31,
+        z[0]=s1b0, z[1]=s1b1, z[2]=s1b2, z[3]=s1b3, z[4]=s1b4, z[5]=s1b5, z[6]=s1b6, z[7]=s1b7, z[8]=s1b8, z[9]=s1b9, z[10]=s1b10, z[11]=s1b11, z[12]=s1b12, z[13]=s1b13, z[14]=s1b14, z[15]=s1b15, z[16]=s1b16, z[17]=s1b17, z[18]=s1b18, z[19]=s1b19, z[20]=s1b20, z[21]=s1b21, z[22]=s1b22, z[23]=s1b23, z[24]=s1b24, z[25]=s1b25, z[26]=s1b26, z[27]=s1b27, z[28]=s1b28, z[29]=s1b29, z[30]=s1b30, z[31]=s1b31,
+        sum[0]=s2a0, sum[1]=s2a1, sum[2]=s2a2, sum[3]=s2a3, sum[4]=s2a4, sum[5]=s2a5, sum[6]=s2a6, sum[7]=s2a7, sum[8]=s2a8, sum[9]=s2a9, sum[10]=s2a10, sum[11]=s2a11, sum[12]=s2a12, sum[13]=s2a13, sum[14]=s2a14, sum[15]=s2a15, sum[16]=s2a16, sum[17]=s2a17, sum[18]=s2a18, sum[19]=s2a19, sum[20]=s2a20, sum[21]=s2a21, sum[22]=s2a22, sum[23]=s2a23, sum[24]=s2a24, sum[25]=s2a25, sum[26]=s2a26, sum[27]=s2a27, sum[28]=s2a28, sum[29]=s2a29, sum[30]=s2a30, sum[31]=s2a31,
+        carry[0]=c2a0, carry[1]=c2a1, carry[2]=c2a2, carry[3]=c2a3, carry[4]=c2a4, carry[5]=c2a5, carry[6]=c2a6, carry[7]=c2a7, carry[8]=c2a8, carry[9]=c2a9, carry[10]=c2a10, carry[11]=c2a11, carry[12]=c2a12, carry[13]=c2a13, carry[14]=c2a14, carry[15]=c2a15, carry[16]=c2a16, carry[17]=c2a17, carry[18]=c2a18, carry[19]=c2a19, carry[20]=c2a20, carry[21]=c2a21, carry[22]=c2a22, carry[23]=c2a23, carry[24]=c2a24, carry[25]=c2a25, carry[26]=c2a26, carry[27]=c2a27, carry[28]=c2a28, carry[29]=c2a29, carry[30]=c2a30, carry[31]=c2a31
+    );
+
+    CarrySaveAdder(
+        x[0]=c1b0, x[1]=c1b1, x[2]=c1b2, x[3]=c1b3, x[4]=c1b4, x[5]=c1b5, x[6]=c1b6, x[7]=c1b7, x[8]=c1b8, x[9]=c1b9, x[10]=c1b10, x[11]=c1b11, x[12]=c1b12, x[13]=c1b13, x[14]=c1b14, x[15]=c1b15, x[16]=c1b16, x[17]=c1b17, x[18]=c1b18, x[19]=c1b19, x[20]=c1b20, x[21]=c1b21, x[22]=c1b22, x[23]=c1b23, x[24]=c1b24, x[25]=c1b25, x[26]=c1b26, x[27]=c1b27, x[28]=c1b28, x[29]=c1b29, x[30]=c1b30, x[31]=c1b31,
+        y[0]=s1c0, y[1]=s1c1, y[2]=s1c2, y[3]=s1c3, y[4]=s1c4, y[5]=s1c5, y[6]=s1c6, y[7]=s1c7, y[8]=s1c8, y[9]=s1c9, y[10]=s1c10, y[11]=s1c11, y[12]=s1c12, y[13]=s1c13, y[14]=s1c14, y[15]=s1c15, y[16]=s1c16, y[17]=s1c17, y[18]=s1c18, y[19]=s1c19, y[20]=s1c20, y[21]=s1c21, y[22]=s1c22, y[23]=s1c23, y[24]=s1c24, y[25]=s1c25, y[26]=s1c26, y[27]=s1c27, y[28]=s1c28, y[29]=s1c29, y[30]=s1c30, y[31]=s1c31,
+        z[0]=c1c0, z[1]=c1c1, z[2]=c1c2, z[3]=c1c3, z[4]=c1c4, z[5]=c1c5, z[6]=c1c6, z[7]=c1c7, z[8]=c1c8, z[9]=c1c9, z[10]=c1c10, z[11]=c1c11, z[12]=c1c12, z[13]=c1c13, z[14]=c1c14, z[15]=c1c15, z[16]=c1c16, z[17]=c1c17, z[18]=c1c18, z[19]=c1c19, z[20]=c1c20, z[21]=c1c21, z[22]=c1c22, z[23]=c1c23, z[24]=c1c24, z[25]=c1c25, z[26]=c1c26, z[27]=c1c27, z[28]=c1c28, z[29]=c1c29, z[30]=c1c30, z[31]=c1c31,
+        sum[0]=s2b0, sum[1]=s2b1, sum[2]=s2b2, sum[3]=s2b3, sum[4]=s2b4, sum[5]=s2b5, sum[6]=s2b6, sum[7]=s2b7, sum[8]=s2b8, sum[9]=s2b9, sum[10]=s2b10, sum[11]=s2b11, sum[12]=s2b12, sum[13]=s2b13, sum[14]=s2b14, sum[15]=s2b15, sum[16]=s2b16, sum[17]=s2b17, sum[18]=s2b18, sum[19]=s2b19, sum[20]=s2b20, sum[21]=s2b21, sum[22]=s2b22, sum[23]=s2b23, sum[24]=s2b24, sum[25]=s2b25, sum[26]=s2b26, sum[27]=s2b27, sum[28]=s2b28, sum[29]=s2b29, sum[30]=s2b30, sum[31]=s2b31,
+        carry[0]=c2b0, carry[1]=c2b1, carry[2]=c2b2, carry[3]=c2b3, carry[4]=c2b4, carry[5]=c2b5, carry[6]=c2b6, carry[7]=c2b7, carry[8]=c2b8, carry[9]=c2b9, carry[10]=c2b10, carry[11]=c2b11, carry[12]=c2b12, carry[13]=c2b13, carry[14]=c2b14, carry[15]=c2b15, carry[16]=c2b16, carry[17]=c2b17, carry[18]=c2b18, carry[19]=c2b19, carry[20]=c2b20, carry[21]=c2b21, carry[22]=c2b22, carry[23]=c2b23, carry[24]=c2b24, carry[25]=c2b25, carry[26]=c2b26, carry[27]=c2b27, carry[28]=c2b28, carry[29]=c2b29, carry[30]=c2b30, carry[31]=c2b31
+    );
+
+    CarrySaveAdder(
+        x[0]=s1d0, x[1]=s1d1, x[2]=s1d2, x[3]=s1d3, x[4]=s1d4, x[5]=s1d5, x[6]=s1d6, x[7]=s1d7, x[8]=s1d8, x[9]=s1d9, x[10]=s1d10, x[11]=s1d11, x[12]=s1d12, x[13]=s1d13, x[14]=s1d14, x[15]=s1d15, x[16]=s1d16, x[17]=s1d17, x[18]=s1d18, x[19]=s1d19, x[20]=s1d20, x[21]=s1d21, x[22]=s1d22, x[23]=s1d23, x[24]=s1d24, x[25]=s1d25, x[26]=s1d26, x[27]=s1d27, x[28]=s1d28, x[29]=s1d29, x[30]=s1d30, x[31]=s1d31,
+        y[0]=c1d0, y[1]=c1d1, y[2]=c1d2, y[3]=c1d3, y[4]=c1d4, y[5]=c1d5, y[6]=c1d6, y[7]=c1d7, y[8]=c1d8, y[9]=c1d9, y[10]=c1d10, y[11]=c1d11, y[12]=c1d12, y[13]=c1d13, y[14]=c1d14, y[15]=c1d15, y[16]=c1d16, y[17]=c1d17, y[18]=c1d18, y[19]=c1d19, y[20]=c1d20, y[21]=c1d21, y[22]=c1d22, y[23]=c1d23, y[24]=c1d24, y[25]=c1d25, y[26]=c1d26, y[27]=c1d27, y[28]=c1d28, y[29]=c1d29, y[30]=c1d30, y[31]=c1d31,
+        z[0]=s1e0, z[1]=s1e1, z[2]=s1e2, z[3]=s1e3, z[4]=s1e4, z[5]=s1e5, z[6]=s1e6, z[7]=s1e7, z[8]=s1e8, z[9]=s1e9, z[10]=s1e10, z[11]=s1e11, z[12]=s1e12, z[13]=s1e13, z[14]=s1e14, z[15]=s1e15, z[16]=s1e16, z[17]=s1e17, z[18]=s1e18, z[19]=s1e19, z[20]=s1e20, z[21]=s1e21, z[22]=s1e22, z[23]=s1e23, z[24]=s1e24, z[25]=s1e25, z[26]=s1e26, z[27]=s1e27, z[28]=s1e28, z[29]=s1e29, z[30]=s1e30, z[31]=s1e31,
+        sum[0]=s2c0, sum[1]=s2c1, sum[2]=s2c2, sum[3]=s2c3, sum[4]=s2c4, sum[5]=s2c5, sum[6]=s2c6, sum[7]=s2c7, sum[8]=s2c8, sum[9]=s2c9, sum[10]=s2c10, sum[11]=s2c11, sum[12]=s2c12, sum[13]=s2c13, sum[14]=s2c14, sum[15]=s2c15, sum[16]=s2c16, sum[17]=s2c17, sum[18]=s2c18, sum[19]=s2c19, sum[20]=s2c20, sum[21]=s2c21, sum[22]=s2c22, sum[23]=s2c23, sum[24]=s2c24, sum[25]=s2c25, sum[26]=s2c26, sum[27]=s2c27, sum[28]=s2c28, sum[29]=s2c29, sum[30]=s2c30, sum[31]=s2c31,
+        carry[0]=c2c0, carry[1]=c2c1, carry[2]=c2c2, carry[3]=c2c3, carry[4]=c2c4, carry[5]=c2c5, carry[6]=c2c6, carry[7]=c2c7, carry[8]=c2c8, carry[9]=c2c9, carry[10]=c2c10, carry[11]=c2c11, carry[12]=c2c12, carry[13]=c2c13, carry[14]=c2c14, carry[15]=c2c15, carry[16]=c2c16, carry[17]=c2c17, carry[18]=c2c18, carry[19]=c2c19, carry[20]=c2c20, carry[21]=c2c21, carry[22]=c2c22, carry[23]=c2c23, carry[24]=c2c24, carry[25]=c2c25, carry[26]=c2c26, carry[27]=c2c27, carry[28]=c2c28, carry[29]=c2c29, carry[30]=c2c30, carry[31]=c2c31
+    );
+
+    CarrySaveAdder(
+        x[0]=s2a0, x[1]=s2a1, x[2]=s2a2, x[3]=s2a3, x[4]=s2a4, x[5]=s2a5, x[6]=s2a6, x[7]=s2a7, x[8]=s2a8, x[9]=s2a9, x[10]=s2a10, x[11]=s2a11, x[12]=s2a12, x[13]=s2a13, x[14]=s2a14, x[15]=s2a15, x[16]=s2a16, x[17]=s2a17, x[18]=s2a18, x[19]=s2a19, x[20]=s2a20, x[21]=s2a21, x[22]=s2a22, x[23]=s2a23, x[24]=s2a24, x[25]=s2a25, x[26]=s2a26, x[27]=s2a27, x[28]=s2a28, x[29]=s2a29, x[30]=s2a30, x[31]=s2a31,
+        y[0]=c2a0, y[1]=c2a1, y[2]=c2a2, y[3]=c2a3, y[4]=c2a4, y[5]=c2a5, y[6]=c2a6, y[7]=c2a7, y[8]=c2a8, y[9]=c2a9, y[10]=c2a10, y[11]=c2a11, y[12]=c2a12, y[13]=c2a13, y[14]=c2a14, y[15]=c2a15, y[16]=c2a16, y[17]=c2a17, y[18]=c2a18, y[19]=c2a19, y[20]=c2a20, y[21]=c2a21, y[22]=c2a22, y[23]=c2a23, y[24]=c2a24, y[25]=c2a25, y[26]=c2a26, y[27]=c2a27, y[28]=c2a28, y[29]=c2a29, y[30]=c2a30, y[31]=c2a31,
+        z[0]=s2b0, z[1]=s2b1, z[2]=s2b2, z[3]=s2b3, z[4]=s2b4, z[5]=s2b5, z[6]=s2b6, z[7]=s2b7, z[8]=s2b8, z[9]=s2b9, z[10]=s2b10, z[11]=s2b11, z[12]=s2b12, z[13]=s2b13, z[14]=s2b14, z[15]=s2b15, z[16]=s2b16, z[17]=s2b17, z[18]=s2b18, z[19]=s2b19, z[20]=s2b20, z[21]=s2b21, z[22]=s2b22, z[23]=s2b23, z[24]=s2b24, z[25]=s2b25, z[26]=s2b26, z[27]=s2b27, z[28]=s2b28, z[29]=s2b29, z[30]=s2b30, z[31]=s2b31,
+        sum[0]=s3a0, sum[1]=s3a1, sum[2]=s3a2, sum[3]=s3a3, sum[4]=s3a4, sum[5]=s3a5, sum[6]=s3a6, sum[7]=s3a7, sum[8]=s3a8, sum[9]=s3a9, sum[10]=s3a10, sum[11]=s3a11, sum[12]=s3a12, sum[13]=s3a13, sum[14]=s3a14, sum[15]=s3a15, sum[16]=s3a16, sum[17]=s3a17, sum[18]=s3a18, sum[19]=s3a19, sum[20]=s3a20, sum[21]=s3a21, sum[22]=s3a22, sum[23]=s3a23, sum[24]=s3a24, sum[25]=s3a25, sum[26]=s3a26, sum[27]=s3a27, sum[28]=s3a28, sum[29]=s3a29, sum[30]=s3a30, sum[31]=s3a31,
+        carry[0]=c3a0, carry[1]=c3a1, carry[2]=c3a2, carry[3]=c3a3, carry[4]=c3a4, carry[5]=c3a5, carry[6]=c3a6, carry[7]=c3a7, carry[8]=c3a8, carry[9]=c3a9, carry[10]=c3a10, carry[11]=c3a11, carry[12]=c3a12, carry[13]=c3a13, carry[14]=c3a14, carry[15]=c3a15, carry[16]=c3a16, carry[17]=c3a17, carry[18]=c3a18, carry[19]=c3a19, carry[20]=c3a20, carry[21]=c3a21, carry[22]=c3a22, carry[23]=c3a23, carry[24]=c3a24, carry[25]=c3a25, carry[26]=c3a26, carry[27]=c3a27, carry[28]=c3a28, carry[29]=c3a29, carry[30]=c3a30, carry[31]=c3a31
+    );
+
+    CarrySaveAdder(
+        x[0]=c2b0, x[1]=c2b1, x[2]=c2b2, x[3]=c2b3, x[4]=c2b4, x[5]=c2b5, x[6]=c2b6, x[7]=c2b7, x[8]=c2b8, x[9]=c2b9, x[10]=c2b10, x[11]=c2b11, x[12]=c2b12, x[13]=c2b13, x[14]=c2b14, x[15]=c2b15, x[16]=c2b16, x[17]=c2b17, x[18]=c2b18, x[19]=c2b19, x[20]=c2b20, x[21]=c2b21, x[22]=c2b22, x[23]=c2b23, x[24]=c2b24, x[25]=c2b25, x[26]=c2b26, x[27]=c2b27, x[28]=c2b28, x[29]=c2b29, x[30]=c2b30, x[31]=c2b31,
+        y[0]=s2c0, y[1]=s2c1, y[2]=s2c2, y[3]=s2c3, y[4]=s2c4, y[5]=s2c5, y[6]=s2c6, y[7]=s2c7, y[8]=s2c8, y[9]=s2c9, y[10]=s2c10, y[11]=s2c11, y[12]=s2c12, y[13]=s2c13, y[14]=s2c14, y[15]=s2c15, y[16]=s2c16, y[17]=s2c17, y[18]=s2c18, y[19]=s2c19, y[20]=s2c20, y[21]=s2c21, y[22]=s2c22, y[23]=s2c23, y[24]=s2c24, y[25]=s2c25, y[26]=s2c26, y[27]=s2c27, y[28]=s2c28, y[29]=s2c29, y[30]=s2c30, y[31]=s2c31,
+        z[0]=c2c0, z[1]=c2c1, z[2]=c2c2, z[3]=c2c3, z[4]=c2c4, z[5]=c2c5, z[6]=c2c6, z[7]=c2c7, z[8]=c2c8, z[9]=c2c9, z[10]=c2c10, z[11]=c2c11, z[12]=c2c12, z[13]=c2c13, z[14]=c2c14, z[15]=c2c15, z[16]=c2c16, z[17]=c2c17, z[18]=c2c18, z[19]=c2c19, z[20]=c2c20, z[21]=c2c21, z[22]=c2c22, z[23]=c2c23, z[24]=c2c24, z[25]=c2c25, z[26]=c2c26, z[27]=c2c27, z[28]=c2c28, z[29]=c2c29, z[30]=c2c30, z[31]=c2c31,
+        sum[0]=s3b0, sum[1]=s3b1, sum[2]=s3b2, sum[3]=s3b3, sum[4]=s3b4, sum[5]=s3b5, sum[6]=s3b6, sum[7]=s3b7, sum[8]=s3b8, sum[9]=s3b9, sum[10]=s3b10, sum[11]=s3b11, sum[12]=s3b12, sum[13]=s3b13, sum[14]=s3b14, sum[15]=s3b15, sum[16]=s3b16, sum[17]=s3b17, sum[18]=s3b18, sum[19]=s3b19, sum[20]=s3b20, sum[21]=s3b21, sum[22]=s3b22, sum[23]=s3b23, sum[24]=s3b24, sum[25]=s3b25, sum[26]=s3b26, sum[27]=s3b27, sum[28]=s3b28, sum[29]=s3b29, sum[30]=s3b30, sum[31]=s3b31,
+        carry[0]=c3b0, carry[1]=c3b1, carry[2]=c3b2, carry[3]=c3b3, carry[4]=c3b4, carry[5]=c3b5, carry[6]=c3b6, carry[7]=c3b7, carry[8]=c3b8, carry[9]=c3b9, carry[10]=c3b10, carry[11]=c3b11, carry[12]=c3b12, carry[13]=c3b13, carry[14]=c3b14, carry[15]=c3b15, carry[16]=c3b16, carry[17]=c3b17, carry[18]=c3b18, carry[19]=c3b19, carry[20]=c3b20, carry[21]=c3b21, carry[22]=c3b22, carry[23]=c3b23, carry[24]=c3b24, carry[25]=c3b25, carry[26]=c3b26, carry[27]=c3b27, carry[28]=c3b28, carry[29]=c3b29, carry[30]=c3b30, carry[31]=c3b31
+    );
+
+    CarrySaveAdder(
+        x[0]=s3a0, x[1]=s3a1, x[2]=s3a2, x[3]=s3a3, x[4]=s3a4, x[5]=s3a5, x[6]=s3a6, x[7]=s3a7, x[8]=s3a8, x[9]=s3a9, x[10]=s3a10, x[11]=s3a11, x[12]=s3a12, x[13]=s3a13, x[14]=s3a14, x[15]=s3a15, x[16]=s3a16, x[17]=s3a17, x[18]=s3a18, x[19]=s3a19, x[20]=s3a20, x[21]=s3a21, x[22]=s3a22, x[23]=s3a23, x[24]=s3a24, x[25]=s3a25, x[26]=s3a26, x[27]=s3a27, x[28]=s3a28, x[29]=s3a29, x[30]=s3a30, x[31]=s3a31,
+        y[0]=c3a0, y[1]=c3a1, y[2]=c3a2, y[3]=c3a3, y[4]=c3a4, y[5]=c3a5, y[6]=c3a6, y[7]=c3a7, y[8]=c3a8, y[9]=c3a9, y[10]=c3a10, y[11]=c3a11, y[12]=c3a12, y[13]=c3a13, y[14]=c3a14, y[15]=c3a15, y[16]=c3a16, y[17]=c3a17, y[18]=c3a18, y[19]=c3a19, y[20]=c3a20, y[21]=c3a21, y[22]=c3a22, y[23]=c3a23, y[24]=c3a24, y[25]=c3a25, y[26]=c3a26, y[27]=c3a27, y[28]=c3a28, y[29]=c3a29, y[30]=c3a30, y[31]=c3a31,
+        z[0]=s3b0, z[1]=s3b1, z[2]=s3b2, z[3]=s3b3, z[4]=s3b4, z[5]=s3b5, z[6]=s3b6, z[7]=s3b7, z[8]=s3b8, z[9]=s3b9, z[10]=s3b10, z[11]=s3b11, z[12]=s3b12, z[13]=s3b13, z[14]=s3b14, z[15]=s3b15, z[16]=s3b16, z[17]=s3b17, z[18]=s3b18, z[19]=s3b19, z[20]=s3b20, z[21]=s3b21, z[22]=s3b22, z[23]=s3b23, z[24]=s3b24, z[25]=s3b25, z[26]=s3b26, z[27]=s3b27, z[28]=s3b28, z[29]=s3b29, z[30]=s3b30, z[31]=s3b31,
+        sum[0]=s4a0, sum[1]=s4a1, sum[2]=s4a2, sum[3]=s4a3, sum[4]=s4a4, sum[5]=s4a5, sum[6]=s4a6, sum[7]=s4a7, sum[8]=s4a8, sum[9]=s4a9, sum[10]=s4a10, sum[11]=s4a11, sum[12]=s4a12, sum[13]=s4a13, sum[14]=s4a14, sum[15]=s4a15, sum[16]=s4a16, sum[17]=s4a17, sum[18]=s4a18, sum[19]=s4a19, sum[20]=s4a20, sum[21]=s4a21, sum[22]=s4a22, sum[23]=s4a23, sum[24]=s4a24, sum[25]=s4a25, sum[26]=s4a26, sum[27]=s4a27, sum[28]=s4a28, sum[29]=s4a29, sum[30]=s4a30, sum[31]=s4a31,
+        carry[0]=c4a0, carry[1]=c4a1, carry[2]=c4a2, carry[3]=c4a3, carry[4]=c4a4, carry[5]=c4a5, carry[6]=c4a6, carry[7]=c4a7, carry[8]=c4a8, carry[9]=c4a9, carry[10]=c4a10, carry[11]=c4a11, carry[12]=c4a12, carry[13]=c4a13, carry[14]=c4a14, carry[15]=c4a15, carry[16]=c4a16, carry[17]=c4a17, carry[18]=c4a18, carry[19]=c4a19, carry[20]=c4a20, carry[21]=c4a21, carry[22]=c4a22, carry[23]=c4a23, carry[24]=c4a24, carry[25]=c4a25, carry[26]=c4a26, carry[27]=c4a27, carry[28]=c4a28, carry[29]=c4a29, carry[30]=c4a30, carry[31]=c4a31
+    );
+
+    CarrySaveAdder(
+        x[0]=c3b0, x[1]=c3b1, x[2]=c3b2, x[3]=c3b3, x[4]=c3b4, x[5]=c3b5, x[6]=c3b6, x[7]=c3b7, x[8]=c3b8, x[9]=c3b9, x[10]=c3b10, x[11]=c3b11, x[12]=c3b12, x[13]=c3b13, x[14]=c3b14, x[15]=c3b15, x[16]=c3b16, x[17]=c3b17, x[18]=c3b18, x[19]=c3b19, x[20]=c3b20, x[21]=c3b21, x[22]=c3b22, x[23]=c3b23, x[24]=c3b24, x[25]=c3b25, x[26]=c3b26, x[27]=c3b27, x[28]=c3b28, x[29]=c3b29, x[30]=c3b30, x[31]=c3b31,
+        y[0]=c1e0, y[1]=c1e1, y[2]=c1e2, y[3]=c1e3, y[4]=c1e4, y[5]=c1e5, y[6]=c1e6, y[7]=c1e7, y[8]=c1e8, y[9]=c1e9, y[10]=c1e10, y[11]=c1e11, y[12]=c1e12, y[13]=c1e13, y[14]=c1e14, y[15]=c1e15, y[16]=c1e16, y[17]=c1e17, y[18]=c1e18, y[19]=c1e19, y[20]=c1e20, y[21]=c1e21, y[22]=c1e22, y[23]=c1e23, y[24]=c1e24, y[25]=c1e25, y[26]=c1e26, y[27]=c1e27, y[28]=c1e28, y[29]=c1e29, y[30]=c1e30, y[31]=c1e31,
+        z[15]=p15p0, z[16]=p15p1, z[17]=p15p2, z[18]=p15p3, z[19]=p15p4, z[20]=p15p5, z[21]=p15p6, z[22]=p15p7, z[23]=p15p8, z[24]=p15p9, z[25]=p15p10, z[26]=p15p11, z[27]=p15p12, z[28]=p15p13, z[29]=p15p14, z[30]=p15p15,
+        sum[0]=s4b0, sum[1]=s4b1, sum[2]=s4b2, sum[3]=s4b3, sum[4]=s4b4, sum[5]=s4b5, sum[6]=s4b6, sum[7]=s4b7, sum[8]=s4b8, sum[9]=s4b9, sum[10]=s4b10, sum[11]=s4b11, sum[12]=s4b12, sum[13]=s4b13, sum[14]=s4b14, sum[15]=s4b15, sum[16]=s4b16, sum[17]=s4b17, sum[18]=s4b18, sum[19]=s4b19, sum[20]=s4b20, sum[21]=s4b21, sum[22]=s4b22, sum[23]=s4b23, sum[24]=s4b24, sum[25]=s4b25, sum[26]=s4b26, sum[27]=s4b27, sum[28]=s4b28, sum[29]=s4b29, sum[30]=s4b30, sum[31]=s4b31,
+        carry[0]=c4b0, carry[1]=c4b1, carry[2]=c4b2, carry[3]=c4b3, carry[4]=c4b4, carry[5]=c4b5, carry[6]=c4b6, carry[7]=c4b7, carry[8]=c4b8, carry[9]=c4b9, carry[10]=c4b10, carry[11]=c4b11, carry[12]=c4b12, carry[13]=c4b13, carry[14]=c4b14, carry[15]=c4b15, carry[16]=c4b16, carry[17]=c4b17, carry[18]=c4b18, carry[19]=c4b19, carry[20]=c4b20, carry[21]=c4b21, carry[22]=c4b22, carry[23]=c4b23, carry[24]=c4b24, carry[25]=c4b25, carry[26]=c4b26, carry[27]=c4b27, carry[28]=c4b28, carry[29]=c4b29, carry[30]=c4b30, carry[31]=c4b31
+    );
+
+    CarrySaveAdder(
+        x[0]=s4a0, x[1]=s4a1, x[2]=s4a2, x[3]=s4a3, x[4]=s4a4, x[5]=s4a5, x[6]=s4a6, x[7]=s4a7, x[8]=s4a8, x[9]=s4a9, x[10]=s4a10, x[11]=s4a11, x[12]=s4a12, x[13]=s4a13, x[14]=s4a14, x[15]=s4a15, x[16]=s4a16, x[17]=s4a17, x[18]=s4a18, x[19]=s4a19, x[20]=s4a20, x[21]=s4a21, x[22]=s4a22, x[23]=s4a23, x[24]=s4a24, x[25]=s4a25, x[26]=s4a26, x[27]=s4a27, x[28]=s4a28, x[29]=s4a29, x[30]=s4a30, x[31]=s4a31,
+        y[0]=c4a0, y[1]=c4a1, y[2]=c4a2, y[3]=c4a3, y[4]=c4a4, y[5]=c4a5, y[6]=c4a6, y[7]=c4a7, y[8]=c4a8, y[9]=c4a9, y[10]=c4a10, y[11]=c4a11, y[12]=c4a12, y[13]=c4a13, y[14]=c4a14, y[15]=c4a15, y[16]=c4a16, y[17]=c4a17, y[18]=c4a18, y[19]=c4a19, y[20]=c4a20, y[21]=c4a21, y[22]=c4a22, y[23]=c4a23, y[24]=c4a24, y[25]=c4a25, y[26]=c4a26, y[27]=c4a27, y[28]=c4a28, y[29]=c4a29, y[30]=c4a30, y[31]=c4a31,
+        z[0]=s4b0, z[1]=s4b1, z[2]=s4b2, z[3]=s4b3, z[4]=s4b4, z[5]=s4b5, z[6]=s4b6, z[7]=s4b7, z[8]=s4b8, z[9]=s4b9, z[10]=s4b10, z[11]=s4b11, z[12]=s4b12, z[13]=s4b13, z[14]=s4b14, z[15]=s4b15, z[16]=s4b16, z[17]=s4b17, z[18]=s4b18, z[19]=s4b19, z[20]=s4b20, z[21]=s4b21, z[22]=s4b22, z[23]=s4b23, z[24]=s4b24, z[25]=s4b25, z[26]=s4b26, z[27]=s4b27, z[28]=s4b28, z[29]=s4b29, z[30]=s4b30, z[31]=s4b31,
+        sum[0]=s5a0, sum[1]=s5a1, sum[2]=s5a2, sum[3]=s5a3, sum[4]=s5a4, sum[5]=s5a5, sum[6]=s5a6, sum[7]=s5a7, sum[8]=s5a8, sum[9]=s5a9, sum[10]=s5a10, sum[11]=s5a11, sum[12]=s5a12, sum[13]=s5a13, sum[14]=s5a14, sum[15]=s5a15, sum[16]=s5a16, sum[17]=s5a17, sum[18]=s5a18, sum[19]=s5a19, sum[20]=s5a20, sum[21]=s5a21, sum[22]=s5a22, sum[23]=s5a23, sum[24]=s5a24, sum[25]=s5a25, sum[26]=s5a26, sum[27]=s5a27, sum[28]=s5a28, sum[29]=s5a29, sum[30]=s5a30, sum[31]=s5a31,
+        carry[0]=c5a0, carry[1]=c5a1, carry[2]=c5a2, carry[3]=c5a3, carry[4]=c5a4, carry[5]=c5a5, carry[6]=c5a6, carry[7]=c5a7, carry[8]=c5a8, carry[9]=c5a9, carry[10]=c5a10, carry[11]=c5a11, carry[12]=c5a12, carry[13]=c5a13, carry[14]=c5a14, carry[15]=c5a15, carry[16]=c5a16, carry[17]=c5a17, carry[18]=c5a18, carry[19]=c5a19, carry[20]=c5a20, carry[21]=c5a21, carry[22]=c5a22, carry[23]=c5a23, carry[24]=c5a24, carry[25]=c5a25, carry[26]=c5a26, carry[27]=c5a27, carry[28]=c5a28, carry[29]=c5a29, carry[30]=c5a30, carry[31]=c5a31
+    );
+
+    CarrySaveAdder(
+        x[0]=s5a0, x[1]=s5a1, x[2]=s5a2, x[3]=s5a3, x[4]=s5a4, x[5]=s5a5, x[6]=s5a6, x[7]=s5a7, x[8]=s5a8, x[9]=s5a9, x[10]=s5a10, x[11]=s5a11, x[12]=s5a12, x[13]=s5a13, x[14]=s5a14, x[15]=s5a15, x[16]=s5a16, x[17]=s5a17, x[18]=s5a18, x[19]=s5a19, x[20]=s5a20, x[21]=s5a21, x[22]=s5a22, x[23]=s5a23, x[24]=s5a24, x[25]=s5a25, x[26]=s5a26, x[27]=s5a27, x[28]=s5a28, x[29]=s5a29, x[30]=s5a30, x[31]=s5a31,
+        y[0]=c5a0, y[1]=c5a1, y[2]=c5a2, y[3]=c5a3, y[4]=c5a4, y[5]=c5a5, y[6]=c5a6, y[7]=c5a7, y[8]=c5a8, y[9]=c5a9, y[10]=c5a10, y[11]=c5a11, y[12]=c5a12, y[13]=c5a13, y[14]=c5a14, y[15]=c5a15, y[16]=c5a16, y[17]=c5a17, y[18]=c5a18, y[19]=c5a19, y[20]=c5a20, y[21]=c5a21, y[22]=c5a22, y[23]=c5a23, y[24]=c5a24, y[25]=c5a25, y[26]=c5a26, y[27]=c5a27, y[28]=c5a28, y[29]=c5a29, y[30]=c5a30, y[31]=c5a31,
+        z[0]=c4b0, z[1]=c4b1, z[2]=c4b2, z[3]=c4b3, z[4]=c4b4, z[5]=c4b5, z[6]=c4b6, z[7]=c4b7, z[8]=c4b8, z[9]=c4b9, z[10]=c4b10, z[11]=c4b11, z[12]=c4b12, z[13]=c4b13, z[14]=c4b14, z[15]=c4b15, z[16]=c4b16, z[17]=c4b17, z[18]=c4b18, z[19]=c4b19, z[20]=c4b20, z[21]=c4b21, z[22]=c4b22, z[23]=c4b23, z[24]=c4b24, z[25]=c4b25, z[26]=c4b26, z[27]=c4b27, z[28]=c4b28, z[29]=c4b29, z[30]=c4b30, z[31]=c4b31,
+        sum[0]=fs0, sum[1]=fs1, sum[2]=fs2, sum[3]=fs3, sum[4]=fs4, sum[5]=fs5, sum[6]=fs6, sum[7]=fs7, sum[8]=fs8, sum[9]=fs9, sum[10]=fs10, sum[11]=fs11, sum[12]=fs12, sum[13]=fs13, sum[14]=fs14, sum[15]=fs15, sum[16]=fs16, sum[17]=fs17, sum[18]=fs18, sum[19]=fs19, sum[20]=fs20, sum[21]=fs21, sum[22]=fs22, sum[23]=fs23, sum[24]=fs24, sum[25]=fs25, sum[26]=fs26, sum[27]=fs27, sum[28]=fs28, sum[29]=fs29, sum[30]=fs30, sum[31]=fs31,
+        carry[0]=fc0, carry[1]=fc1, carry[2]=fc2, carry[3]=fc3, carry[4]=fc4, carry[5]=fc5, carry[6]=fc6, carry[7]=fc7, carry[8]=fc8, carry[9]=fc9, carry[10]=fc10, carry[11]=fc11, carry[12]=fc12, carry[13]=fc13, carry[14]=fc14, carry[15]=fc15, carry[16]=fc16, carry[17]=fc17, carry[18]=fc18, carry[19]=fc19, carry[20]=fc20, carry[21]=fc21, carry[22]=fc22, carry[23]=fc23, carry[24]=fc24, carry[25]=fc25, carry[26]=fc26, carry[27]=fc27, carry[28]=fc28, carry[29]=fc29, carry[30]=fc30, carry[31]=fc31
+    );
+
+    CarryLookAheadAdder(
+        a[0]=fs0, a[1]=fs1, a[2]=fs2, a[3]=fs3, a[4]=fs4, a[5]=fs5, a[6]=fs6, a[7]=fs7, a[8]=fs8, a[9]=fs9, a[10]=fs10, a[11]=fs11, a[12]=fs12, a[13]=fs13, a[14]=fs14, a[15]=fs15, a[16]=fs16, a[17]=fs17, a[18]=fs18, a[19]=fs19, a[20]=fs20, a[21]=fs21, a[22]=fs22, a[23]=fs23, a[24]=fs24, a[25]=fs25, a[26]=fs26, a[27]=fs27, a[28]=fs28, a[29]=fs29, a[30]=fs30, a[31]=fs31,
+        b[0]=false, b[1]=fc0, b[2]=fc1, b[3]=fc2, b[4]=fc3, b[5]=fc4, b[6]=fc5, b[7]=fc6, b[8]=fc7, b[9]=fc8, b[10]=fc9, b[11]=fc10, b[12]=fc11, b[13]=fc12, b[14]=fc13, b[15]=fc14, b[16]=fc15, b[17]=fc16, b[18]=fc17, b[19]=fc18, b[20]=fc19, b[21]=fc20, b[22]=fc21, b[23]=fc22, b[24]=fc23, b[25]=fc24, b[26]=fc25, b[27]=fc26, b[28]=fc27, b[29]=fc28, b[30]=fc29, b[31]=fc30,
+        sum[0]=z0, sum[1]=z1, sum[2]=z2, sum[3]=z3, sum[4]=z4, sum[5]=z5, sum[6]=z6, sum[7]=z7, sum[8]=z8, sum[9]=z9, sum[10]=z10, sum[11]=z11, sum[12]=z12, sum[13]=z13, sum[14]=z14, sum[15]=z15, sum[16]=z16, sum[17]=z17, sum[18]=z18, sum[19]=z19, sum[20]=z20, sum[21]=z21, sum[22]=z22, sum[23]=z23, sum[24]=z24, sum[25]=z25, sum[26]=z26, sum[27]=z27, sum[28]=z28, sum[29]=z29, sum[30]=z30, sum[31]=z31
+    );
+
+    Or(a=z0, b=false, out=out1[0]);
+    Or(a=z1, b=false, out=out1[1]);
+    Or(a=z2, b=false, out=out1[2]);
+    Or(a=z3, b=false, out=out1[3]);
+    Or(a=z4, b=false, out=out1[4]);
+    Or(a=z5, b=false, out=out1[5]);
+    Or(a=z6, b=false, out=out1[6]);
+    Or(a=z7, b=false, out=out1[7]);
+    Or(a=z8, b=false, out=out1[8]);
+    Or(a=z9, b=false, out=out1[9]);
+    Or(a=z10, b=false, out=out1[10]);
+    Or(a=z11, b=false, out=out1[11]);
+    Or(a=z12, b=false, out=out1[12]);
+    Or(a=z13, b=false, out=out1[13]);
+    Or(a=z14, b=false, out=out1[14]);
+    Or(a=z15, b=false, out=out1[15]);
+    Or(a=z16, b=false, out=out2[0]);
+    Or(a=z17, b=false, out=out2[1]);
+    Or(a=z18, b=false, out=out2[2]);
+    Or(a=z19, b=false, out=out2[3]);
+    Or(a=z20, b=false, out=out2[4]);
+    Or(a=z21, b=false, out=out2[5]);
+    Or(a=z22, b=false, out=out2[6]);
+    Or(a=z23, b=false, out=out2[7]);
+    Or(a=z24, b=false, out=out2[8]);
+    Or(a=z25, b=false, out=out2[9]);
+    Or(a=z26, b=false, out=out2[10]);
+    Or(a=z27, b=false, out=out2[11]);
+    Or(a=z28, b=false, out=out2[12]);
+    Or(a=z29, b=false, out=out2[13]);
+    Or(a=z30, b=false, out=out2[14]);
+    Or(a=z31, b=false, out=out2[15]);
+
+    Or(a=z0, b=false, out=out[0]);
+    Or(a=z1, b=false, out=out[1]);
+    Or(a=z2, b=false, out=out[2]);
+    Or(a=z3, b=false, out=out[3]);
+    Or(a=z4, b=false, out=out[4]);
+    Or(a=z5, b=false, out=out[5]);
+    Or(a=z6, b=false, out=out[6]);
+    Or(a=z7, b=false, out=out[7]);
+    Or(a=z8, b=false, out=out[8]);
+    Or(a=z9, b=false, out=out[9]);
+    Or(a=z10, b=false, out=out[10]);
+    Or(a=z11, b=false, out=out[11]);
+    Or(a=z12, b=false, out=out[12]);
+    Or(a=z13, b=false, out=out[13]);
+    Or(a=z14, b=false, out=out[14]);
+    Or(a=z15, b=false, out=out[15]);
+    Or(a=z16, b=false, out=out[16]);
+    Or(a=z17, b=false, out=out[17]);
+    Or(a=z18, b=false, out=out[18]);
+    Or(a=z19, b=false, out=out[19]);
+    Or(a=z20, b=false, out=out[20]);
+    Or(a=z21, b=false, out=out[21]);
+    Or(a=z22, b=false, out=out[22]);
+    Or(a=z23, b=false, out=out[23]);
+    Or(a=z24, b=false, out=out[24]);
+    Or(a=z25, b=false, out=out[25]);
+    Or(a=z26, b=false, out=out[26]);
+    Or(a=z27, b=false, out=out[27]);
+    Or(a=z28, b=false, out=out[28]);
+    Or(a=z29, b=false, out=out[29]);
+    Or(a=z30, b=false, out=out[30]);
+    Or(a=z31, b=false, out=out[31]);
+}

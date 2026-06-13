@@ -1,0 +1,40 @@
+CHIP ALU {
+    IN
+        x[16], y[16],
+        zx, nx, zy, ny, f, no;
+    OUT
+        out[16], zr, ng;
+
+    PARTS:
+    And(a=zx, b=nx, out=zxnx);
+    And(a=zy, b=ny, out=zyny);
+    And(a=zxnx, b=zyny, out=allHigh);
+    Not(in=f, out=notf);
+    Not(in=no, out=notno);
+    And(a=notf, b=notno, out=bothLow);
+    And(a=allHigh, b=bothLow, out=mulSel);
+
+    Mux16(a=x, b=false, sel=zx, out=x1);
+    Not16(in=x1, out=notx1);
+    Mux16(a=x1, b=notx1, sel=nx, out=x2);
+
+    Mux16(a=y, b=false, sel=zy, out=y1);
+    Not16(in=y1, out=noty1);
+    Mux16(a=y1, b=noty1, sel=ny, out=y2);
+
+    And16(a=x2, b=y2, out=xAndy);
+    Add16(a=x2, b=y2, out=xPlusy);
+    Mux16(a=xAndy, b=xPlusy, sel=f, out=fout);
+
+    Not16(in=fout, out=notfout);
+    Mux16(a=fout, b=notfout, sel=no, out=normalOut);
+
+    SignedMultiplier(a=x, b=y, out1=mulOut);
+
+    Mux16(a=normalOut, b=mulOut, sel=mulSel, out=out, out[15]=ng, out[0..7]=low, out[8..15]=high);
+
+    Or8Way(in=low, out=or1);
+    Or8Way(in=high, out=or2);
+    Or(a=or1, b=or2, out=nonzero);
+    Not(in=nonzero, out=zr);
+}

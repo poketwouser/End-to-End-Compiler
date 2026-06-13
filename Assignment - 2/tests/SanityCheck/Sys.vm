@@ -1,0 +1,14 @@
+// Sys.init for SanityCheck test
+function Sys.init 0
+    // Arguments: W_rows=2, W_cols=3, X_rows=3, X_cols=2, B_rows=2, B_cols=1 (Valid)
+    push constant 2
+    push constant 3
+    push constant 3
+    push constant 2
+    push constant 2
+    push constant 1
+    call SanityCheck.check 6
+    pop temp 0         // discard return value
+    
+label END
+    goto END
